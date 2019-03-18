@@ -1,12 +1,53 @@
-import { IEntry } from "./types";
+import {
+  IEntry,
+  IEntryType,
+  defaultAssetsOptions,
+  AssetsOptions
+} from "./types";
 import * as fs from "fs";
+import * as path from "path";
+import * as minimatch from "minimatch";
+// No type defined file
+const varname = require("varname");
 
-class Parser {
-  public static parseDirectory(filepath: string): IEntry | undefined {
-    const directory = fs.readdirSync(filepath, {
-      withFileTypes: true
-    });
+export class Parser {
+  public static parseDirectory(
+    dirpath: string,
+    options: AssetsOptions = defaultAssetsOptions
+  ): IEntry[] | undefined {
+    const dirStats = fs.lstatSync(dirpath);
 
-    return undefined;
+    if (!dirStats.isDirectory()) {
+      return undefined;
+    }
+
+    const filenames = fs.readdirSync(dirpath);
+
+    return filenames
+      .map(filename => {
+        const stats = fs.lstatSync(path.resolve(dirpath, filename));
+        return { filename, stats };
+      })
+      .filter(({ filename, stats }) => {
+        // Only process regular file or directory
+        if (stats.isDirectory()) {
+          return true;
+        }
+
+        if (stats.isFile()) {
+          // if type is file, check match option to determine if need
+          return minimatch(filename, options.match, { matchBase: true });
+        }
+
+        return false;
+      })
+      .map(({ filename, stats }) => {
+        return {
+          type: stats.isDirectory() ? IEntryType.DIRECTORY : IEntryType.FILE,
+          filename,
+          basedir: dirpath,
+          exportedName: varname.camelback(filename)
+        };
+      });
   }
 }
