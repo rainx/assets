@@ -15,19 +15,19 @@ Assets index generate toolset, this tool is used for Javascript/Typescript proje
 ```
 Recursively generate index.ts files on src/assets direcotry
 
-> assets  src/assets
+> assets -v src/assets
 
 or You could use nodemon to watch changes and regenerate it once new asset added
 
 > yarn global add nodemon
-For example: your asset files is under example directory
+For example: your asset files is under src/assets directory
 > cat ./nodemon.json
 {
     "verbose": true,
     "ignore": ["**/*.ts", "**/*.js"],
-    "watch": "./example/",
+    "watch": "./src/assets/",
     "ext": "png,svg,xml.pdf,ico",
-    "exec": "assets -v example"
+    "exec": "assets -v src/assets"
 }
 > nodemon
 
