@@ -2,7 +2,7 @@ import {
   IEntry,
   IEntryType,
   defaultAssetsOptions,
-  AssetsOptions
+  IAssetsOptions
 } from "./types";
 import * as fs from "fs";
 import * as path from "path";
@@ -13,11 +13,16 @@ const varname = require("varname");
 export class Parser {
   public static parseDirectory(
     dirpath: string,
-    options: AssetsOptions = defaultAssetsOptions
+    options: IAssetsOptions = defaultAssetsOptions
   ): IEntry[] | undefined {
-    const dirStats = fs.lstatSync(dirpath);
+    let dirStats;
+    try {
+      dirStats = fs.lstatSync(dirpath);
 
-    if (!dirStats.isDirectory()) {
+      if (!dirStats.isDirectory()) {
+        return undefined;
+      }
+    } catch (e) {
       return undefined;
     }
 

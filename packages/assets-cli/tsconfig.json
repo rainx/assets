@@ -6,10 +6,9 @@
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "declarationDir": "./dist",
     "sourceMap": true,
     "inlineSources": true,
     "types": ["node", "mocha"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "node_modules/assets-core/src/**/*"]
 }

@@ -1,7 +1,7 @@
 import {
   IEntry,
   IEntryType,
-  AssetsOptions,
+  IAssetsOptions,
   defaultAssetsOptions
 } from "./types";
 
@@ -11,7 +11,7 @@ export class Generator {
    */
   public static generateContentByEnteryList(
     entryList: IEntry[],
-    options: AssetsOptions = defaultAssetsOptions
+    options: IAssetsOptions = defaultAssetsOptions
   ) {
     const symbolsToExport: string[] = [];
     const importLines: string[] = [];

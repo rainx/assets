@@ -1,4 +1,4 @@
-import { AssetsOptions, defaultAssetsOptions, IEntryType } from "./types";
+import { IAssetsOptions, defaultAssetsOptions, IEntryType } from "./types";
 import { Generator } from "./generator";
 import { Parser } from "./parser";
 import * as path from "path";
@@ -7,7 +7,8 @@ import * as fs from "fs";
 export const generateIndexFileForDirectory = (
   dirpath: string,
   recursive: boolean,
-  options: AssetsOptions = defaultAssetsOptions
+  options: IAssetsOptions = defaultAssetsOptions,
+  verbose: boolean = false
 ) => {
   const entryList = Parser.parseDirectory(dirpath, options);
 
@@ -26,6 +27,9 @@ export const generateIndexFileForDirectory = (
 
     const indexFileFullPath = path.resolve(dirpath, indexFilename);
     fs.writeFileSync(indexFileFullPath, indexFileContent);
+    if (verbose) {
+      console.log(`Generated ${indexFilename} on directory: ${dirpath}`);
+    }
 
     // if recursive set, recursively process all sub-directory
     if (recursive) {
@@ -35,11 +39,12 @@ export const generateIndexFileForDirectory = (
           generateIndexFileForDirectory(
             path.resolve(dirpath, entry.filename),
             recursive,
-            options
+            options,
+            verbose
           );
         });
     }
   }
 };
 
-// console.log(generateIndexFileForDirectory("/private/tmp", true));
+console.log(generateIndexFileForDirectory("/tmp/example", true));

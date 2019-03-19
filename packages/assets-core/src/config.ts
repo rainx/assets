@@ -4,8 +4,8 @@ import * as fs from "fs";
 /**
  * Load config from file, if error or file is not existing, use default options
  */
-class Config {
-  public loadOptionsFromConfigFile(configFileName: string) {
+export class Config {
+  public static loadOptionsFromConfigFile(configFileName: string) {
     const stats = fs.lstatSync(configFileName);
     if (!stats.isFile()) {
       return defaultAssetsOptions;
