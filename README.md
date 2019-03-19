@@ -4,6 +4,35 @@
 
 Assets index generate toolset, this tool is used for Javascript/Typescript project to manage assets. It's idea is from Android resource management mechanism(`R.java`)
 
+## Installation
+
+```
+> yarn global add assets-cli
+```
+
+## Usage
+
+```
+Recursively generate index.ts files on src/assets direcotry
+
+> assets  src/assets
+
+or You could use nodemon to watch changes and regenerate it once new asset added
+
+> yarn global add nodemon
+For example: your asset files is under example directory
+> cat ./nodemon.json
+{
+    "verbose": true,
+    "ignore": ["**/*.ts", "**/*.js"],
+    "watch": "./example/",
+    "ext": "png,svg,xml.pdf,ico",
+    "exec": "assets -v example"
+}
+> nodemon
+
+```
+
 ## Example
 
 You has such a directory structure in you project.
