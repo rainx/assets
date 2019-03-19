@@ -46,5 +46,3 @@ export const generateIndexFileForDirectory = (
     }
   }
 };
-
-console.log(generateIndexFileForDirectory("/tmp/example", true));
