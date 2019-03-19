@@ -5,6 +5,8 @@
   "main": "dist/bundle.js",
   "author": "RainX<i@rainx.cc>",
   "license": "MIT",
+  "homepage": "https://github.com/rainx/assets",
+  "repository": "https://github.com/rainx/assets",
   "bin": {
     "assets": "./bin/cli.js"
   },

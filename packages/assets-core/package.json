@@ -4,12 +4,14 @@
   "description": "Auto create assets index file",
   "main": "dist/bundle.js",
   "author": "RainX<i@rainx.cc>",
+  "homepage": "https://github.com/rainx/assets",
+  "repository": "https://github.com/rainx/assets",
   "license": "MIT",
   "scripts": {
     "start": "yarn run watch",
     "watch": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
-    "build:types" : "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
