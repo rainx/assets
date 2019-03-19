@@ -47,11 +47,17 @@ export class Parser {
         return false;
       })
       .map(({ filename, stats }) => {
+        const rawExportedName = varname.camelback(filename) as string;
+        // If it is a number , add prefix
+        const exportedName = /\d/.test(rawExportedName.substr(0, 1))
+          ? "num" + rawExportedName
+          : rawExportedName;
+
         return {
           type: stats.isDirectory() ? IEntryType.DIRECTORY : IEntryType.FILE,
           filename,
           basedir: dirpath,
-          exportedName: varname.camelback(filename)
+          exportedName: exportedName
         };
       });
   }
