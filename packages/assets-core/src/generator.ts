@@ -23,7 +23,7 @@ export class Generator {
         symbolsToExport.push(entry.exportedName);
         if (options.module == "es6") {
           importLines.push(
-            `import * as ${entry.exportedName} from './${entry.filename}';`
+            `import ${entry.exportedName} from './${entry.filename}';`
           );
         } else if (options.module == "commonjs") {
           importLines.push(
