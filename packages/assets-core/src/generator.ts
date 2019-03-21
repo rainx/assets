@@ -33,7 +33,7 @@ export class Generator {
           ) {
             const svgComponentName = `${entry.exportedName}Component`;
             importLines.push(
-              `import { ReactComponent as ${svgComponentName} } form './${
+              `import { ReactComponent as ${svgComponentName} } from './${
                 entry.filename
               }';`
             );
