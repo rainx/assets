@@ -1,6 +1,6 @@
 {
   "name": "assets-core",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Auto create assets index file",
   "main": "dist/bundle.js",
   "author": "RainX<i@rainx.cc>",
