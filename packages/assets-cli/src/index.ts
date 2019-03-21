@@ -17,7 +17,7 @@ program
     "./assetsrc"
   )
   .option(
-    "-m, --match <match>",
+    "-a, --match <match>",
     "Which files to import. in minimatch format: eg. *.+(png/svg)"
   )
   .action(rootDirecotry => {
