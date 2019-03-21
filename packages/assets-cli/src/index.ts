@@ -18,8 +18,9 @@ program
   )
   .option(
     "-a, --match <match>",
-    "Which files to import. in minimatch format: eg. *.+(png/svg)"
+    "which files to import. in minimatch format: eg. *.+(png/svg)"
   )
+  .option("-r, --svg", "whether generate svg react component or not", false)
   .action(rootDirecotry => {
     directory = rootDirecotry;
   })
@@ -79,6 +80,14 @@ if (program.match) {
   options = {
     ...options,
     match: program.match
+  };
+}
+
+console.log(program.svg);
+if (program.svg) {
+  options = {
+    ...options,
+    exportReactComponentForSvg: program.svg
   };
 }
 

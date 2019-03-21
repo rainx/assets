@@ -15,11 +15,13 @@ export interface IAssetsOptions {
   filetype: "ts" | "js";
   match: string;
   assetsPathList: string[];
+  exportReactComponentForSvg: boolean;
 }
 
 export const defaultAssetsOptions: IAssetsOptions = {
   module: "es6",
   filetype: "ts",
   match: "*.+(png|jpg|png|svg|pdf|gif|mov|ico|xml)",
-  assetsPathList: ["./assets"]
+  assetsPathList: ["./assets"],
+  exportReactComponentForSvg: false
 };

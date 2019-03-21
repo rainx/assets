@@ -4,6 +4,7 @@ import {
   IAssetsOptions,
   defaultAssetsOptions
 } from "./types";
+import * as path from "path";
 
 export class Generator {
   /**
@@ -25,6 +26,19 @@ export class Generator {
           importLines.push(
             `import ${entry.exportedName} from './${entry.filename}';`
           );
+
+          if (
+            options.exportReactComponentForSvg &&
+            path.extname(entry.filename).toLowerCase() === ".svg"
+          ) {
+            const svgComponentName = `${entry.exportedName}Component`;
+            importLines.push(
+              `import { ReactComponent as ${svgComponentName} } form './${
+                entry.filename
+              }';`
+            );
+            symbolsToExport.push(svgComponentName);
+          }
         } else if (options.module == "commonjs") {
           importLines.push(
             `const ${entry.exportedName} = require('./${entry.filename}');`
