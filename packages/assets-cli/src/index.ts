@@ -83,7 +83,6 @@ if (program.match) {
   };
 }
 
-console.log(program.svg);
 if (program.svg) {
   options = {
     ...options,
