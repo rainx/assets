@@ -26,7 +26,7 @@ export class Parser {
       return undefined;
     }
 
-    const filenames = fs.readdirSync(dirpath);
+    const filenames = fs.readdirSync(dirpath).sort();
 
     return filenames
       .map(filename => {
