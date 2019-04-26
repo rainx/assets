@@ -424,6 +424,14 @@ assert@^1.1.1:
   dependencies:
     util "0.10.3"
 
+assets-core@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/assets-core/-/assets-core-0.1.9.tgz#210558b282bda7f834bd1e6d5810e35c46a3e82a"
+  integrity sha512-VRz44kCUw39AtDA/wH2LuYxjDTiMH67koFY0TxVUPI0mye7g/SSaK6H2yOhy5H6Sx88VRfTSd5z6ht/g1VMa3Q==
+  dependencies:
+    minimatch "^3.0.4"
+    varname "^2.0.3"
+
 assign-symbols@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
@@ -3028,6 +3036,11 @@ v8-compile-cache@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.0.2.tgz#a428b28bb26790734c4fc8bc9fa106fccebf6a6c"
   integrity sha512-1wFuMUIM16MDJRCrpbpuEPTUGmM5QMUg0cr3KFwra2XgOgFcPGDQHDh3CszSCD2Zewc/dh/pamNEW8CbfDebUw==
+
+varname@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/varname/-/varname-2.0.3.tgz#05e8dc64fbb6e59170de44aad4ddeab8ab87b68e"
+  integrity sha1-BejcZPu25ZFw3kSq1N3quKuHto4=
 
 vm-browserify@0.0.4:
   version "0.0.4"
