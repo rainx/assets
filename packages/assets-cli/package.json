@@ -1,6 +1,6 @@
 {
   "name": "assets-cli",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Auto create assets index file CLI",
   "main": "dist/bundle.js",
   "author": "RainX<i@rainx.cc>",
