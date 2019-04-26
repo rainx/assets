@@ -19,7 +19,22 @@ export class Generator {
 
     // sort first
     entryList
-      .sort((entry, entryNext) => entry.type - entryNext.type)
+      .sort((entry, entryNext) => {
+        const typeDiff = entry.type - entryNext.type;
+        // First, If type is not same, check the type first
+        if (typeDiff !== 0) {
+          return typeDiff;
+        } else {
+          // if type is same, check alphabet order
+          if (entry.filename < entryNext.filename) {
+            return -1;
+          }
+          if (entry.filename > entryNext.filename) {
+            return 1;
+          }
+          return 0;
+        }
+      })
       .forEach(entry => {
         symbolsToExport.push(entry.exportedName);
         if (options.module == "es6") {
